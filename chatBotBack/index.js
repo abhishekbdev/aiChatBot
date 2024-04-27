@@ -4,6 +4,9 @@ require('dotenv').config()
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
+const port = process.env.PORT || 4000;
+
+
 const app = express();
 
 
@@ -35,9 +38,8 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong!');
 });
 
-app.listen(4000, () => {
-
-  console.log('App running on port 4000');
+app.listen(port, () => {
+  console.log(`App running on port ${port}`);
 });
 
 
